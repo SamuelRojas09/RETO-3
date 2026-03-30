@@ -3,11 +3,11 @@ from typing import List
 
 class MenuItem:
     def __init__(self, name: str, price: float) -> None:
-        self.name: str = name
-        self.price: float = price
+        self._name: str = name
+        self._price: float = price
 
     def calculate_total(self) -> float:
-        return self.price
+        return self._price
 
 
 class Beverage(MenuItem):
@@ -45,7 +45,7 @@ class Order:
             print("No has agregado productos.")
         else:
             for item in self.items:
-                print(f"- {item.name} ........ $ {item.price:.3f}")
+                print(f"- {item._name} ........ $ {item._price:.3f}")
 
     def calculate_total(self) -> float:
         total: float = 0.0
@@ -90,7 +90,7 @@ order: Order = Order()
 while True:
     print("\n======= MENÚ =======")
     for i in range(len(menu)):
-        print(f"{i}. {menu[i].name} ........ $ {menu[i].price:.3f}")
+        print(f"{i}. {menu[i]._name} ........ $ {menu[i]._price:.3f}")
 
     print("\nOpciones:")
     print("a -> Agregar producto")
