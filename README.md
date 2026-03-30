@@ -70,8 +70,8 @@ classDiagram
     direction TB
 
     class MenuItem {
-        -name : str
-        -price : float
+        +name : str
+        +price : float
         +calculate_total() : float
     }
 
