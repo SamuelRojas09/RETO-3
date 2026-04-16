@@ -1,6 +1,5 @@
 from typing import List
 
-
 class MenuItem:
     def __init__(self, name: str, price: float) -> None:
         self._name: str = name
@@ -9,12 +8,10 @@ class MenuItem:
     def calculate_total(self) -> float:
         return self._price
 
-
 class Beverage(MenuItem):
     def __init__(self, name: str, price: float, size: str) -> None:
         super().__init__(name, price)
         self.size: str = size
-
 
 class Appetizer(MenuItem):
     def __init__(
@@ -23,14 +20,12 @@ class Appetizer(MenuItem):
         super().__init__(name, price)
         self.is_shareable: bool = is_shareable
 
-
 class MainCourse(MenuItem):
     def __init__(
         self, name: str, price: float, calories: int
     ) -> None:
         super().__init__(name, price)
         self.calories: int = calories
-
 
 class Order:
     def __init__(self) -> None:
@@ -84,7 +79,6 @@ menu: List[MenuItem] = [
     MainCourse("Ensalada", 8.0, 400),
 ]
 
-
 order: Order = Order()
 
 while True:
@@ -121,7 +115,6 @@ while True:
 
     else:
         print("Opción no válida")
-
 
 print("\n======= RESUMEN =======")
 order.show_order()
