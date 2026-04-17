@@ -109,9 +109,8 @@ Rectangle *-- Line
 ##  Point, Line y Rectangle 
 
 ```mermaid
-
 classDiagram
-%%{init: {"layout": "elk"}}%%
+
 class Point {
     +float x
     +float y
@@ -140,11 +139,10 @@ class Rectangle {
     +compute_area() float
 }
 
-Line --> "2" Point : 
-Rectangle o-- "4" Line : 
-
-...
+Line --> Point
+Rectangle *-- Line
 ```
+
 
 Se definen tres clases principales: `Point`, `Line` y `Rectangle`, junto con métodos para calcular propiedades geométricas como distancia, pendiente, intersecciones y área.
 
