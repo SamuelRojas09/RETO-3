@@ -104,6 +104,44 @@ classDiagram
 #  Ejercicio de clase: Class Line
 ##  Point, Line y Rectangle 
 
+```mermaid
+
+classDiagram
+%%{init: {"layout": "elk"}}%%
+class Point {
+    +float x
+    +float y
+    +__repr__()
+}
+
+class Line {
+    +Point start
+    +Point end
+    +float length
+    +float slope
+    +list~Point~ discretized_points
+    +compute_length() float
+    +compute_slope() float | None
+    +compute_horizontal_cross() bool
+    +compute_vertical_cross() bool
+    +discretize_line(n: int) list~Point~
+}
+
+class Rectangle {
+    +Line line1
+    +Line line2
+    +Line line3
+    +Line line4
+    +compute_perimeter() float
+    +compute_area() float
+}
+
+Line --> "2" Point : 
+Rectangle o-- "4" Line : 
+
+...
+```
+
 Se definen tres clases principales: `Point`, `Line` y `Rectangle`, junto con métodos para calcular propiedades geométricas como distancia, pendiente, intersecciones y área.
 
 ---
