@@ -72,23 +72,28 @@ classDiagram
     class MenuItem {
         -_name : str
         -_price : float
+        +__init__(name: str, price: float)
         +calculate_total() float
     }
 
     class Beverage {
         +size : str
+        +__init__(name: str, price: float, size: str)
     }
 
     class Appetizer {
         +is_shareable : bool
+        +__init__(name: str, price: float, is_shareable: bool)
     }
 
     class MainCourse {
         +calories : int
+        +__init__(name: str, price: float, calories: int)
     }
 
     class Order {
         +items : List~MenuItem~
+        +__init__()
         +add_item(item: MenuItem) void
         +show_order() void
         +calculate_total() float
@@ -98,10 +103,8 @@ classDiagram
     MenuItem <|-- Beverage
     MenuItem <|-- Appetizer
     MenuItem <|-- MainCourse
-    Order --> MenuItem
+    Order --> "*" MenuItem
 ```
-
-
 
 #  Ejercicio de clase: Class Line
 ##  Point, Line y Rectangle 
