@@ -67,42 +67,40 @@ Esto permite al usuario visualizar claramente el resultado de su compra.
 
 ```mermaid
 classDiagram
-%%{init: {"layout": "elk"}}%%
+    direction TB
 
-class Point {
-    +float x
-    +float y
-    +__repr__()
-}
+    class MenuItem {
+        -_name : str
+        -_price : float
+        +calculate_total() float
+    }
 
-class Line {
-    +Point start
-    +Point end
-    +float length
-    +float slope
-    +list~Point~ discretized_points
-    +compute_length() float
-    +compute_slope() float | None
-    +compute_horizontal_cross() bool
-    +compute_vertical_cross() bool
-    +discretize_line(n: int) list~Point~
-}
+    class Beverage {
+        +size : str
+    }
 
-class Rectangle {
-    +Line line1
-    +Line line2
-    +Line line3
-    +Line line4
-    +compute_perimeter() float
-    +compute_area() float
-}
+    class Appetizer {
+        +is_shareable : bool
+    }
 
-Line --> Point
-Rectangle *-- Line
+    class MainCourse {
+        +calories : int
+    }
 
-%% Line está definida por 2 puntos
-%% Rectangle está compuesto por 4 líneas
+    class Order {
+        +items : List~MenuItem~
+        +add_item(item: MenuItem) void
+        +show_order() void
+        +calculate_total() float
+        +apply_discount() float
+    }
+
+    MenuItem <|-- Beverage
+    MenuItem <|-- Appetizer
+    MenuItem <|-- MainCourse
+    Order --> MenuItem
 ```
+
 
 
 #  Ejercicio de clase: Class Line
