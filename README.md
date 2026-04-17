@@ -100,3 +100,77 @@ classDiagram
     MenuItem <|-- MainCourse
     Order --> MenuItem
 ```
+
+#  Ejercicio de clase: Class Line
+##  Point, Line y Rectangle 
+
+Se definen tres clases principales: `Point`, `Line` y `Rectangle`, junto con métodos para calcular propiedades geométricas como distancia, pendiente, intersecciones y área.
+
+---
+
+##  Descripción de Clases
+
+###  Point
+
+Representa un punto en el plano cartesiano.
+
+**Atributos:**
+
+* `x: float` → coordenada en el eje X
+* `y: float` → coordenada en el eje Y
+
+**Métodos:**
+
+* `__repr__()` → retorna una representación del punto en formato `(x, y)`
+
+---
+
+###  Line
+
+Representa un segmento de línea definido por dos puntos.
+
+**Atributos:**
+
+* `start: Point` → punto inicial
+* `end: Point` → punto final
+* `length: float | None` → longitud de la línea
+* `slope: float | None` → pendiente en grados
+* `discretized_points: list[Point] | None` → puntos generados sobre la línea
+
+**Métodos:**
+
+* `compute_length() -> float`
+  Calcula la distancia entre los dos puntos.
+
+* `compute_slope() -> float | None`
+  Calcula la pendiente en grados respecto al eje horizontal.
+  Retorna `None` si la línea es vertical.
+
+* `compute_horizontal_cross() -> bool`
+  Retorna `True` si la línea cruza el eje X.
+
+* `compute_vertical_cross() -> bool`
+  Retorna `True` si la línea cruza el eje Y.
+
+* `discretize_line(n: int) -> list[Point]`
+  Crea `n` puntos a lo largo de la línea, todos a la misma distancia entre sí.
+
+---
+
+### Rectangle
+
+Representa un rectángulo compuesto por cuatro líneas.
+
+**Atributos:**
+
+* `line1, line2, line3, line4: Line`
+
+**Métodos:**
+
+* `compute_perimeter() -> float`
+  Retorna la suma de las longitudes de los cuatro lados.
+
+* `compute_area() -> float`
+  Calcula el área del rectángulo, base × altura .
+
+---
